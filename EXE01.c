@@ -9,9 +9,12 @@
 */
 
 struct Carro {
-    char marca[20];
-    char modelo[20];
-    char placa[20];
+        char marca[20];
+
+        char modelo[20];
+        
+        char placa[20];
+    
     int ano;
 };
 
@@ -19,57 +22,155 @@ struct Carro {
 
 int main(){
 
-    int opcao, i, j;
+    int opcao, i, l, y;
+    char m[20];
 
-    for (i = 1; i <= 20;){
-            printf("\nDigite uma opcao: \n");
-            printf("1- Cadastrar um novo veiculo: \n");
-            printf("2- Listar os veiculos cadastrados: \n");
-            printf("3- Listar os veiculos filtrando-se por ano de fabricacao: \n");
-            printf("4- Listar os veiculos com o ano de fabricacao acima de um certo valor especificado pelo usuário: \n");
-            printf("5- Listar os veiculos filtrando-se pelo modelo: \n\n");
+    for(i = 1; i <=20;){
 
-            scanf("%d", &opcao);
+        printf("\n\nEscolha a sua opcao: \n");
+        printf("1- Inserir um novo veiculo; \n");
+        printf("2- Listar os veiculos cadastrados; \n");
+        printf("3- Listar os veiculos filtrando-se por ano de fabricacao; \n");
+        printf("4- Listar os veiculos com o ano de fabricacao acima de um certo valor especificado pelo usuario; \n");
+        printf("5- Listar os veiculos filtrando-se pelo modelo; \n");
+        printf("0- Sair. \n");
 
-            switch(opcao){
-                case 1:
+        printf("\nDigite:.... ");
+        scanf("%d", &opcao);
 
-                    fflush(stdin);
-                    printf ("\n Marca:");
-                    scanf ("%s", &cadastro[i].marca);
-    
-                    fflush(stdin);
-                    printf ("\n Modelo:");
-                    scanf ("%s", &cadastro[i].modelo);
-    
-                    fflush(stdin);
-                    printf ("\n Placa: ");
-                    scanf ("%s", &cadastro[i].placa);
-    
-                    fflush(stdin);
-                    printf ("\n Ano: ");
-                    scanf ("%d", &cadastro[i].ano);
+        switch (opcao)
+        {
+        case 1:
+            
+            fflush(stdin);
+            printf("\n Marca:");
+            scanf("%s", &cadastro[i].marca);
 
-                    fflush(stdin);
-                    i++;
-                    
-                break;
+            fflush(stdin);
+            printf("\n Modelo:");
+            scanf("%s", &cadastro[i].modelo);
 
-                case 2:
-                    for(j=1; j<=20; j++){
-                        if(j < i){
-                            printf("\n\nMarca: %s", &cadastro[j].marca);
-                            printf("\nModelo: %s ano %d", &cadastro[j].modelo, cadastro[j].ano);
-                            printf("\nPlaca: %s \n", &cadastro[j].placa);
-                        }else{
-                            j = 20;
-                        }
-                        break;
-                    }
+            fflush(stdin);
+            printf("\n Placa:");
+            scanf("%s", &cadastro[i].placa);
+
+            fflush(stdin);
+            printf("\n Ano:");
+            scanf("%d", &cadastro[i].ano);
+
+            fflush(stdin);
+            i++;
+
+            break;
+
+        case 2:
+            
+            for (l = 1; l <=20; l++){
+
+                if(l < i){
+
+                    printf("\nMarca: %s", &cadastro[l].marca);
+                    printf("\nModelo: %s ano %d", &cadastro[l].modelo, cadastro[l].ano);
+                    printf("\nPlaca: %s\n", &cadastro[l].placa);
+
+                }else{
+                    l = 20;
+                }
+
             }
+
+            break;
+
+        case 3:
+
+            printf("Digite o ano:..... ");
+            scanf("%d", &y);
+            printf("\nOs modelos do ano de %d: \n", y);
+
+            for (l = 1; l <=20; l++){
+
+                if(l < i){
+
+                    if(cadastro[l].ano == y){
+                        printf("\nMarca: %s", &cadastro[l].marca);
+                        printf("\nModelo: %s ano %d", &cadastro[l].modelo, cadastro[l].ano);
+                        printf("\nPlaca: %s\n", &cadastro[l].placa);
+                    }
+
+                }else{
+                    l = 20;
+                }
+
+            }
+
+            break;
+
+        case 4:
+            
+            printf("Modelos acima do ano:..... ");
+            scanf("%d", &y);
+            printf("\nOs modelo(s) listados acima de %d sao: \n", y);
+
+            for (l = 1; l <=20; l++){
+
+                if(l < i){
+
+                    if(cadastro[l].ano > y){
+                        printf("\nMarca: %s", &cadastro[l].marca);
+                        printf("\nModelo: %s ano %d", &cadastro[l].modelo, cadastro[l].ano);
+                        printf("\nPlaca: %s\n", &cadastro[l].placa);
+                    }
+
+                }else{
+                    l = 20;
+                }
+
+            }
+
+            break;
+
+        case 5:
+            
+            //Em progresso... 
+            /* fflush(stdin);
+            printf("Digite o modelo que deseja consultar:....");
+            getchar();
+            gets(m);
+            printf("Lista de veiculo(s) do modelo: %s\n", m);
+
+            for (l = 1; l <=20; l++){
+
+                if(l < i){
+
+                    if(&cadastro[l].modelo == m){
+                        printf("\nMarca: %s", &cadastro[l].marca);
+                        printf("\nModelo: %s ano %d", &cadastro[l].modelo, cadastro[l].ano);
+                        printf("\nPlaca: %s\n", &cadastro[l].placa);
+                    }else{
+                        printf("Nao possuimos esse modelo listado");
+                    }
+
+                }else{
+                    l = 20;
+                }
+
+            } */
+
+            break;
+        
+        case 0: exit(0); //Finaliza o loop e retorna 0;
+            
+            break;
+
+        default:
+
+            printf("Digite uma opcao valida, por favor");
+            break;
+        
+        }
+
     }
-    
-    
+
 
     return 0;
 }
