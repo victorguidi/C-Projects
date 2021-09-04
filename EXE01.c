@@ -25,7 +25,7 @@ int main(){
     int opcao, i, l, y;
     char m[20];
 
-    for(i = 1; i <=20;){
+    for(i = 0; i <=20;){
 
         printf("\n\nEscolha a sua opcao: \n");
         printf("1- Inserir um novo veiculo; \n");
@@ -42,30 +42,25 @@ int main(){
         {
         case 1:
             
-            fflush(stdin);
             printf("\n Marca:");
             scanf("%s", &cadastro[i].marca);
 
-            fflush(stdin);
             printf("\n Modelo:");
             scanf("%s", &cadastro[i].modelo);
 
-            fflush(stdin);
             printf("\n Placa:");
             scanf("%s", &cadastro[i].placa);
 
-            fflush(stdin);
             printf("\n Ano:");
             scanf("%d", &cadastro[i].ano);
 
-            fflush(stdin);
             i++;
 
             break;
 
         case 2:
             
-            for (l = 1; l <=20; l++){
+            for (l = 0; l <=20; l++){
 
                 if(l < i){
 
@@ -87,7 +82,7 @@ int main(){
             scanf("%d", &y);
             printf("\nOs modelos do ano de %d: \n", y);
 
-            for (l = 1; l <=20; l++){
+            for (l = 0; l <=20; l++){
 
                 if(l < i){
 
@@ -130,19 +125,16 @@ int main(){
             break;
 
         case 5:
-            
-            //Em progresso... 
-            /* fflush(stdin);
+             
             printf("Digite o modelo que deseja consultar:....");
-            getchar();
-            gets(m);
+            scanf("%s", m);
             printf("Lista de veiculo(s) do modelo: %s\n", m);
 
             for (l = 1; l <=20; l++){
 
                 if(l < i){
 
-                    if(&cadastro[l].modelo == m){
+                    if(strcmp(&cadastro[l].modelo, m)==0){
                         printf("\nMarca: %s", &cadastro[l].marca);
                         printf("\nModelo: %s ano %d", &cadastro[l].modelo, cadastro[l].ano);
                         printf("\nPlaca: %s\n", &cadastro[l].placa);
@@ -154,7 +146,7 @@ int main(){
                     l = 20;
                 }
 
-            } */
+            }
 
             break;
         
